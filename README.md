@@ -18,7 +18,7 @@ Personal portfolio website built to showcase my projects, skills, and experience
 
 ## Live Demo
 
-[View Portfolio](anuuj-portfolio.vercel.app)
+[View Portfolio](https://anuuj-portfolio.vercel.app/)
 
 ## Run Locally
 
