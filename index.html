@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anuj Meena | Full Stack Java Developer</title>
+  <meta name="description" content="Portfolio of Anuj Meena, a Full Stack Java Developer specializing in JSP, Servlets, JDBC and MySQL.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    (function () {
+      var saved = localStorage.getItem('theme');
+      var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+    })();
+  </script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">Anuj Meena</div>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
+      </button>
+    </div>
+  </nav>
+
+  <header class="hero" id="home">
+    <div class="hero-grid">
+      <div class="hero-main">
+        <p class="hero-greeting">Hello, I'm</p>
+        <h1 class="hero-name">Anuj Meena</h1>
+        <p class="hero-role">Full Stack Java Developer</p>
+        <p class="hero-tagline">
+          I build web applications end to end — from JDBC-backed data layers to
+          the JSP and Servlet pages people actually use.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="assets/resume.pdf" target="_blank" class="btn btn-outline">View Resume</a>
+          <a href="assets/resume.pdf" download class="btn btn-filled">Download Resume</a>
+        </div>
+
+        <div class="hero-socials">
+          <a href="https://www.linkedin.com/in/anuj-meena309" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <img src="assets/linkedin.png" alt="">
+          </a>
+          <a href="https://github.com/anuuj6268" target="_blank" rel="noopener" aria-label="GitHub">
+            <img src="assets/github.png" alt="">
+          </a>
+        </div>
+      </div>
+
+      <!-- EDIT ME: swap these facts for whatever's true / relevant for you -->
+      <dl class="hero-panel">
+        <p class="hero-panel-label">Currently</p>
+        <div class="hero-fact">
+          <dt>Role</dt>
+          <dd>Full Stack Java Developer</dd>
+        </div>
+        <div class="hero-fact">
+          <dt>Stack</dt>
+          <dd>Java, JSP, Servlets, MySQL</dd>
+        </div>
+        <div class="hero-fact">
+          <dt>Based in</dt>
+          <dd>India</dd>
+        </div>
+        <div class="hero-fact">
+          <dt>Open to</dt>
+          <dd>Full-time roles</dd>
+        </div>
+      </dl>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="section-inner">
+      <div class="section-head">
+        <h2 class="section-title">About Me</h2>
+      </div>
+      <div class="about-body">
+        <!-- EDIT ME: replace with your own words — background, what got you into
+             Java development, and what you're focused on right now. -->
+        <p class="about-text">
+          I'm a Full Stack Java Developer who enjoys building complete web
+          applications — designing the database, writing the backend logic,
+          and shaping the pages people interact with. My recent focus has been
+          on layered MVC architecture using JSP, Servlets, and JDBC, most
+          recently through Dream Bags, a full e-commerce build I designed and
+          shipped end to end.
+        </p>
+        <p class="about-text">
+          I like projects where I can own a feature from database schema to
+          UI — it's the fastest way I've found to actually understand how a
+          system holds together.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-inner">
+      <div class="section-head">
+        <h2 class="section-title">Skills</h2>
+        <p class="section-sub">Languages and tools I build with day to day.</p>
+      </div>
+
+      <div class="skills-category">
+        <h3 class="category-title">Programming Languages</h3>
+        <div class="skills-row">
+          <span class="skill-pill">Java</span>
+          <span class="skill-pill">SQL</span>
+        </div>
+      </div>
+
+      <div class="skills-category">
+        <h3 class="category-title">Backend Development</h3>
+        <div class="skills-row">
+          <span class="skill-pill">JSP</span>
+          <span class="skill-pill">Servlets</span>
+          <span class="skill-pill">JDBC</span>
+        </div>
+      </div>
+
+      <div class="skills-category">
+        <h3 class="category-title">Frontend Development</h3>
+        <div class="skills-row">
+          <span class="skill-pill">HTML</span>
+          <span class="skill-pill">CSS</span>
+        </div>
+      </div>
+
+      <div class="skills-category">
+        <h3 class="category-title">Data Management</h3>
+        <div class="skills-row">
+          <span class="skill-pill">MySQL</span>
+        </div>
+      </div>
+
+      <div class="skills-category">
+        <h3 class="category-title">Tools</h3>
+        <div class="skills-row">
+          <span class="skill-pill">VS Code</span>
+          <span class="skill-pill">Git</span>
+          <span class="skill-pill">GitHub</span>
+          <span class="skill-pill">Eclipse</span>
+          <span class="skill-pill">IntelliJ IDEA</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-inner">
+      <div class="section-head">
+        <h2 class="section-title">Projects</h2>
+        <p class="section-sub">A selection of things I've built.</p>
+      </div>
+
+      <div class="project-card">
+        <div class="project-head">
+          <h3 class="project-name">Dream Bags</h3>
+          <span class="project-tagline">Full-stack e-commerce</span>
+        </div>
+
+        <div class="project-gallery">
+          <a href="assets/dreambags-home.png" target="_blank">
+            <img src="assets/dreambags-home.png" alt="Dream Bags home page">
+          </a>
+          <a href="assets/dreambags-cart.png" target="_blank">
+            <img src="assets/dreambags-cart.png" alt="Dream Bags cart page">
+          </a>
+          <a href="assets/dreambags-checkout.png" target="_blank">
+            <img src="assets/dreambags-checkout.png" alt="Dream Bags checkout page">
+          </a>
+          <a href="assets/dreambags-wishlist.png" target="_blank">
+            <img src="assets/dreambags-wishlist.png" alt="Dream Bags wishlist page">
+          </a>
+        </div>
+
+        <p class="project-desc">
+          Full-stack e-commerce web application built with JSP, Servlets, JDBC, and
+          MySQL, following a layered MVC architecture (DAO → Service → Servlet →
+          JSP). Features include user registration, session-based login, product
+          catalog, cart, wishlist, coupon discounts, and a complete checkout flow
+          with mock payment processing.
+        </p>
+
+        <div class="tech-stack">
+          <span>Java</span>
+          <span>JSP</span>
+          <span>Servlets</span>
+          <span>JDBC</span>
+          <span>MySQL</span>
+          <span>Tomcat</span>
+          <span>HTML</span>
+          <span>CSS</span>
+        </div>
+
+        <div class="project-links">
+          <a href="https://github.com/anuuj6268/dream-bags" target="_blank" class="btn btn-outline">GitHub</a>
+          <a href="https://dream-bags-production.up.railway.app" target="_blank" class="btn btn-filled">Live Demo</a>
+        </div>
+      </div>
+
+      <!-- EDIT ME: duplicate the .project-card block above for each real
+           project, then delete this placeholder. -->
+      <div class="project-card project-placeholder">
+        Add your next project here — copy the Dream Bags card above and swap in new screenshots, description, tech stack and links.
+      </div>
+    </div>
+  </section>
+
+  <!-- EDIT ME: template — fill in your actual school(s) and dates. -->
+  <section id="education">
+    <div class="section-inner">
+      <div class="section-head">
+        <h2 class="section-title">Education</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <p class="timeline-role">Degree Name</p>
+          <p class="timeline-meta">
+            <span>Institution Name</span>
+            <span class="dot">&middot;</span>
+            <span>Year – Year</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-inner">
+      <div class="section-head">
+        <h2 class="section-title">Contact Me</h2>
+        <p class="section-sub">Best ways to reach me.</p>
+      </div>
+
+      <div class="contact-list">
+        <a href="mailto:anujmeena309@gmail.com" class="contact-item">
+          <img src="assets/email.png" alt="">
+          <span>anujmeena309@gmail.com</span>
+        </a>
+
+        <a href="tel:+916268579506" class="contact-item">
+          <img src="assets/phone.png" alt="">
+          <span>+91 62685 79506</span>
+        </a>
+
+        <a href="https://wa.me/916268579506" target="_blank" rel="noopener" class="contact-item">
+          <img src="assets/whatsapp.png" alt="">
+          <span>WhatsApp</span>
+        </a>
+
+        <a href="https://www.linkedin.com/in/anuj-meena309" target="_blank" rel="noopener" class="contact-item">
+          <img src="assets/linkedin.png" alt="">
+          <span>LinkedIn</span>
+        </a>
+
+        <a href="https://github.com/anuuj6268" target="_blank" rel="noopener" class="contact-item">
+          <img src="assets/github.png" alt="">
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2026 Anuj Meena. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    var toggle = document.getElementById('themeToggle');
+    var root = document.documentElement;
+
+    toggle.addEventListener('click', function () {
+      var isLight = root.getAttribute('data-theme') === 'light';
+      if (isLight) {
+        root.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'dark');
+        toggle.setAttribute('aria-label', 'Switch to light theme');
+      } else {
+        root.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+        toggle.setAttribute('aria-label', 'Switch to dark theme');
+      }
+    });
+  </script>
+</body>
+</html>
