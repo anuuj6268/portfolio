@@ -14,6 +14,8 @@
   --accent-strong: #e0b479;
   --accent-soft: rgba(201, 155, 92, 0.14);
   --on-accent: #14110f;
+  --navbar-bg: rgba(20, 17, 15, 0.82);
+  --icon-filter: brightness(0) invert(1);
 
   --serif: 'Fraunces', Georgia, serif;
   --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -38,6 +40,8 @@
   --accent-strong: #8a6330;
   --accent-soft: rgba(169, 122, 63, 0.12);
   --on-accent: #faf6ef;
+  --navbar-bg: rgba(250, 246, 239, 0.82);
+  --icon-filter: none;
 }
 
 body {
@@ -104,9 +108,10 @@ a {
   justify-content: space-between;
   align-items: center;
   padding: 22px var(--gutter);
-  background: rgba(20, 17, 15, 0.82);
+  background: var(--navbar-bg);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border-soft);
+  transition: background-color 0.25s ease, border-color 0.25s ease;
 }
 
 .logo {
@@ -149,10 +154,6 @@ a {
 
 .nav-links a:hover::after {
   width: 100%;
-}
-
-.nav-toggle {
-  display: none;
 }
 
 /* Theme toggle */
@@ -200,7 +201,45 @@ a {
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 26px;
+  gap: 14px;
+}
+
+/* Hamburger toggle (mobile only) */
+.nav-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.nav-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent-strong);
+}
+
+.nav-toggle svg {
+  width: 18px;
+  height: 18px;
+}
+
+.nav-toggle .icon-close {
+  display: none;
+}
+
+.nav-toggle[aria-expanded="true"] .icon-menu {
+  display: none;
+}
+
+.nav-toggle[aria-expanded="true"] .icon-close {
+  display: block;
 }
 
 /* =========================================================
@@ -298,11 +337,83 @@ a {
   width: 22px;
   height: 22px;
   opacity: 0.75;
-  transition: opacity 0.2s ease;
+  filter: var(--icon-filter);
+  transition: opacity 0.2s ease, filter 0.25s ease;
 }
 
 .hero-socials img:hover {
   opacity: 1;
+}
+
+/* Brand-colored icons (phone, GitHub, WhatsApp) via CSS mask instead of filter,
+   so each can carry its real brand color rather than a blanket invert. */
+.icon-mask {
+  display: inline-block;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  transition: opacity 0.2s ease, background-color 0.25s ease;
+}
+
+.hero-socials .icon-mask {
+  width: 22px;
+  height: 22px;
+  opacity: 0.75;
+}
+
+.hero-socials a:hover .icon-mask {
+  opacity: 1;
+}
+
+.icon-github {
+  -webkit-mask-image: url('assets/github.png');
+  mask-image: url('assets/github.png');
+  background-color: var(--text);
+}
+
+:root[data-theme="light"] .icon-github {
+  background-color: #181717;
+}
+
+/* Phone and WhatsApp render as inline SVG (their source PNGs have no
+   transparency, so a mask can't isolate the glyph) and take color directly. */
+.icon-svg {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: color 0.25s ease;
+}
+
+.icon-svg svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.contact-item .icon-svg {
+  width: 17px;
+  height: 17px;
+}
+
+.icon-phone {
+  color: var(--text);
+}
+
+.icon-whatsapp {
+  color: var(--text);
+}
+
+:root[data-theme="light"] .icon-whatsapp {
+  color: #25d366;
+}
+
+/* Icons that should look identical in both themes — never filtered */
+.icon-static {
+  filter: none !important;
 }
 
 /* Hero side panel */
@@ -638,6 +749,13 @@ section {
 .contact-item img {
   width: 17px;
   height: 17px;
+  filter: var(--icon-filter);
+  transition: filter 0.25s ease;
+}
+
+.contact-item .icon-mask {
+  width: 17px;
+  height: 17px;
 }
 
 /* =========================================================
@@ -693,15 +811,54 @@ section {
   }
 
   .navbar {
-    flex-wrap: wrap;
-    gap: 14px;
+    position: relative;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
   }
 
   .nav-links {
-    gap: 16px;
-    flex-wrap: wrap;
-    order: 3;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    padding: 0 var(--gutter);
+    transition: max-height 0.3s ease, opacity 0.2s ease, padding 0.3s ease;
+  }
+
+  .nav-links.is-open {
+    max-height: 400px;
+    opacity: 1;
+    padding: 10px var(--gutter) 20px;
+  }
+
+  .nav-links li {
     width: 100%;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 13px 0;
+    font-size: 1rem;
+    border-bottom: 1px solid var(--border-soft);
+  }
+
+  .nav-links li:last-child a {
+    border-bottom: none;
+  }
+
+  .nav-links a::after {
+    display: none;
   }
 
   .hero {
@@ -753,3 +910,12 @@ section {
     font-size: 0.86rem;
   }
 }
+
+.icon-pinterest {
+  color: var(--text);
+}
+ 
+:root[data-theme="light"] .icon-pinterest {
+  color: #e60023;
+}
+ 
